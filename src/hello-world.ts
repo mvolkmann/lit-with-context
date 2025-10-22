@@ -7,9 +7,10 @@ import { MyContext, myContext } from "./my-context.js";
 export class HelloWorld extends LitElement {
   @consume({ context: myContext, subscribe: true })
   @property({ attribute: false })
-  public context?: MyContext; //TODO: Why public?
+  private context?: MyContext;
 
   render() {
+    //TODO: Why is this.context undefined here?
     console.log("hello-world.ts render: this.context =", this.context);
     return html`<p>Hello, ${this.context?.name}!</p>`;
   }
