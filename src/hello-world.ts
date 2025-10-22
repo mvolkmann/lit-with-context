@@ -5,7 +5,7 @@ import { MyContext, myContext } from "./my-context.js";
 
 @customElement("hello-world")
 export class HelloWorld extends LitElement {
-  @consume({ context: myContext })
+  @consume({ context: myContext, subscribe: true })
   @property({ attribute: false })
   public context?: MyContext; //TODO: Why public?
 
