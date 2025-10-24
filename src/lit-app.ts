@@ -10,7 +10,7 @@ export class LitApp extends LitElement {
 
   constructor() {
     super();
-    this.setName("World");
+    this.reset();
 
     this.addEventListener("name-change", (event: Event) => {
       this.setName((event as CustomEvent).detail);
@@ -31,11 +31,6 @@ export class LitApp extends LitElement {
   }
 
   private setName(name: string) {
-    this.context = {
-      name,
-      setName(name: string) {
-        this.name = name;
-      },
-    };
+    this.context = { name };
   }
 }
