@@ -5,10 +5,12 @@
     <script type="module" src="/src/lit-app.ts"></script>
     <script type="module">
       import "/src/hello-world.ts";
+      import "/src/labeled-input.ts";
     </script>
   </head>
   <body>
     <lit-app>
+      <labeled-input id="name" label="Name" name="name"></labeled-input>
       <hello-world></hello-world>
     </lit-app>
   </body>

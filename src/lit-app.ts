@@ -10,7 +10,7 @@ export class LitApp extends LitElement {
 
   constructor() {
     super();
-    this.setName("World");
+    this.setName("Test");
   }
 
   render() {
@@ -27,6 +27,7 @@ export class LitApp extends LitElement {
   }
 
   private setName(name: string) {
+    console.log("lit-app.ts setName: name =", name);
     this.context = {
       name,
       //setName: this.setName.bind(this),
