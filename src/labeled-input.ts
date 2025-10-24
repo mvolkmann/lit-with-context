@@ -41,8 +41,6 @@ export class LabeledInput extends LitElement {
   }
 
   render() {
-    const name = this.context?.name;
-    console.log("labeled-input.ts render: name =", name);
     return html`
       <div>
         <label for="${this.id}">${this.label}</label>
@@ -50,7 +48,7 @@ export class LabeledInput extends LitElement {
           id="${this.id}"
           name="${this.name}"
           type="text"
-          value="${name}"
+          .value="${this.context?.name}"
           @change=${this.handleChange}
         />
       </div>
