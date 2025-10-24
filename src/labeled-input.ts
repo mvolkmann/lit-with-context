@@ -34,7 +34,6 @@ export class LabeledInput extends LitElement {
     this.dispatchEvent(
       new CustomEvent("name-change", {
         bubbles: true,
-        composed: true,
         detail: input.value,
       })
     );
