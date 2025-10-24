@@ -31,8 +31,13 @@ export class LabeledInput extends LitElement {
 
   handleChange(event: Event) {
     const input = event.target as HTMLInputElement;
-    console.log("labeled-input.ts handleChange: input.value =", input.value);
-    this.context?.setName(input.value);
+    this.dispatchEvent(
+      new CustomEvent("name-change", {
+        bubbles: true,
+        composed: true,
+        detail: input.value,
+      })
+    );
   }
 
   render() {
