@@ -2,11 +2,14 @@
 <html lang="en">
   <head>
     <title>@lit/context demo</title>
+    <script type="module" src="/src/lit-app.ts"></script>
+    <script type="module">
+      import "/src/hello-world.ts";
+    </script>
   </head>
   <body>
     <lit-app>
       <hello-world></hello-world>
     </lit-app>
-    <script type="module" src="/src/lit-app.ts"></script>
   </body>
 </html>
