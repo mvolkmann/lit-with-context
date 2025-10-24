@@ -33,7 +33,6 @@ export class LitApp extends LitElement {
   private setName(name: string) {
     this.context = {
       name,
-      //setName: this.setName.bind(this),
       setName(name: string) {
         this.name = name;
       },
