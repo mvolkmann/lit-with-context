@@ -7,7 +7,7 @@ import { MyContext, myContext } from "./my-context.js";
 export class LabeledInput extends LitElement {
   static styles = [
     css`
-      div {
+      :host {
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -41,16 +41,14 @@ export class LabeledInput extends LitElement {
 
   render() {
     return html`
-      <div>
-        <label for="${this.id}">${this.label}</label>
-        <input
-          id="${this.id}"
-          name="${this.name}"
-          type="text"
-          .value="${this.context?.name}"
-          @change=${this.handleChange}
-        />
-      </div>
+      <label for="${this.id}">${this.label}</label>
+      <input
+        id="${this.id}"
+        name="${this.name}"
+        type="text"
+        .value="${this.context?.name}"
+        @change=${this.handleChange}
+      />
     `;
   }
 
