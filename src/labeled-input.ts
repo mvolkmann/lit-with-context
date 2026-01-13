@@ -31,12 +31,14 @@ export class LabeledInput extends LitElement {
 
   handleChange(event: Event) {
     const input = event.target as HTMLInputElement;
+    //TODO: Is there a simpler alternative? See the state-with-context directory.
     this.dispatchEvent(
       new CustomEvent("name-change", {
         bubbles: true,
         detail: input.value,
       })
     );
+    //this.context?.setName(input.value);
   }
 
   render() {
