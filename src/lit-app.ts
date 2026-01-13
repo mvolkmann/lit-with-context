@@ -5,6 +5,7 @@ import { MyContext, myContext } from "./my-context.js";
 
 @customElement("lit-app")
 export class LitApp extends LitElement {
+  // The provider of a context can update it.
   @provide({ context: myContext })
   private context!: MyContext;
 
@@ -12,7 +13,9 @@ export class LitApp extends LitElement {
     super();
     this.reset();
 
+    // Consumers of myContext can dispatch this event to request an update.
     this.addEventListener("name-change", (event: Event) => {
+      console.log("lit-app.ts : event =", event);
       this.setName((event as CustomEvent).detail);
     });
   }

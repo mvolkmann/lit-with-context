@@ -31,14 +31,20 @@ export class LabeledInput extends LitElement {
 
   handleChange(event: Event) {
     const input = event.target as HTMLInputElement;
-    //TODO: Is there a simpler alternative? See the state-with-context directory.
+    // The consumer of a context cannot update its state.
+    // But it can dispatch a bubbling event to request an update.
+    // The lit-app component is an ancestor of this component.
+    // and it is the provider of myContext.
+    // The provider of a context can update it state.
+    // The lit-app component listens for this event,
+    // and updates the name property.
+    // All consumers are then automatically updated.
     this.dispatchEvent(
       new CustomEvent("name-change", {
-        bubbles: true,
+        bubbles: true, // default is false
         detail: input.value,
       })
     );
-    //this.context?.setName(input.value);
   }
 
   render() {
