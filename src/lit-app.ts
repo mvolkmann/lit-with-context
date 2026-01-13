@@ -15,7 +15,7 @@ export class LitApp extends LitElement {
 
     // Consumers of myContext can dispatch this event to request an update.
     this.addEventListener("name-change", (event: Event) => {
-      console.log("lit-app.ts : event =", event);
+      console.log("lit-app.ts: event =", event);
       this.setName((event as CustomEvent).detail);
     });
   }
@@ -34,6 +34,7 @@ export class LitApp extends LitElement {
   }
 
   private setName(name: string) {
+    // The context property must be reassigned to trigger consumer updates.
     this.context = { name };
   }
 }
